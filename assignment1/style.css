@@ -1,0 +1,14 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+}
+
+.sub_cont {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.noUi-connect {
+    background: #bdc1c2;
+}

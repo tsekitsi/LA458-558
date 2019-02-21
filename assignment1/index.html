@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1 (2/21/2019)</title>
+    
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
+    
+    <link rel="stylesheet" href="../classes/noUiSlider-13.1.1/distribute/nouislider.min.css" type="text/css" />
+    <script type="text/javascript" src="../classes/noUiSlider-13.1.1/distribute/nouislider.min.js"></script>
+    
+    <link rel="stylesheet" href="../classes/ON-OFF-Toggle-Switches-Switcher/css/switcher.css" type="text/css" />
+    <script type="text/javascript" src="../classes/ON-OFF-Toggle-Switches-Switcher/js/jquery.switcher.js"></script>
+    
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script>
+    
+    <script type="text/javascript" src="custom.js"></script>
+    
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    
+    <div id="containerX" style="text-align:center;margin-left:5%;margin-right:5%;width:90%;border-style:solid;border-width:thin">
+        <div style="width:87px;margin:5px;margin-top: -15.5px">
+            <div style="background-color:white;padding:5px;">Duration X:</div>
+        </div>
+        <div style="margin:10px">Select subdivisions:</div>
+        <div id="range" style="margin:50px;margin-bottom:25px" class="noUi-target noUi-ltr noUi-horizontal"></div>
+        <div id="inputsX" style="display:inline-block;text-align:left;margin:10px;height:45px">
+            <div id="yrX" class="sub_cont">
+                <div id="yrXlabel" style="width:79px;text-align:center">
+                    Years:
+                </div>
+                <input id="yrXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="moX" class="sub_cont">
+                <div id="moXlabel" style="width:79px;text-align:center">
+                    Months:
+                </div>
+                <input id="moXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="wwX" class="sub_cont">
+                <div id="wwXlabel" style="width:79px;text-align:center">
+                    Weeks:
+                </div>
+                <input id="wwXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="ddX" class="sub_cont">
+                <div id="ddXlabel" style="width:79px;text-align:center">
+                    Days:
+                </div>
+                <input id="ddXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="hrX" class="sub_cont">
+                <div id="hrXlabel" style="width:79px;text-align:center">
+                    Hours:
+                </div>
+                <input id="hrXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="mmX" class="sub_cont">
+                <div id="mmXlabel" style="width:79px;text-align:center">
+                    Minutes:
+                </div>
+                <input id="mmXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="ssX" class="sub_cont">
+                <div id="ssXlabel" style="width:79px;text-align:center">
+                    Seconds:
+                </div>
+                <input id="ssXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="msX" class="sub_cont">
+                <div id="msXlabel" style="width:79px;text-align:center">
+                    Millisecs:
+                </div>
+                <input id="msXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align:center;margin:10px">
+        <div style="display:inline-block;text-align:left;" class="form-check form-check-inline">
+            <input id="plusOrMinus" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+        </div>
+    </div>
+    
+    <div id="containerY" style="text-align:center;margin-left:5%;margin-right:5%;width:90%;border-style:solid;border-width:thin">
+        <div style="width:87px;margin:5px;margin-top: -15.5px">
+            <div style="background-color:white;padding:5px;">Duration Y:</div>
+        </div>
+        <div style="margin:10px">Select subdivisions:</div>
+        <div id="rangeY" style="margin:50px;margin-bottom:25px" class="noUi-target noUi-ltr noUi-horizontal"></div>
+        <div id="inputsY" style="display:inline-block;text-align:left;margin:10px;height:45px">
+            <div id="yrY" class="sub_cont">
+                <div id="yrYlabel" style="width:79px;text-align:center">
+                    Years:
+                </div>
+                <input id="yrYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="moY" class="sub_cont">
+                <div id="moYlabel" style="width:79px;text-align:center">
+                    Months:
+                </div>
+                <input id="moYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="wwY" class="sub_cont">
+                <div id="wwYlabel" style="width:79px;text-align:center">
+                    Weeks:
+                </div>
+                <input id="wwYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="ddY" class="sub_cont">
+                <div id="ddXlabel" style="width:79px;text-align:center">
+                    Days:
+                </div>
+                <input id="ddYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="hrY" class="sub_cont">
+                <div id="hrYlabel" style="width:79px;text-align:center">
+                    Hours:
+                </div>
+                <input id="hrYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="mmY" class="sub_cont">
+                <div id="mmYlabel" style="width:79px;text-align:center">
+                    Minutes:
+                </div>
+                <input id="mmYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="ssY" class="sub_cont">
+                <div id="ssYlabel" style="width:79px;text-align:center">
+                    Seconds:
+                </div>
+                <input id="ssXin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+            <div id="msY" class="sub_cont">
+                <div id="msYlabel" style="width:79px;text-align:center">
+                    Millisecs:
+                </div>
+                <input id="msYin" style="width:75px" type="number" min="0" value="0"/>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align:center">
+        <button style="border-radius:10px;margin:20px"><b>Calculate</b></button>
+    </div>
+    
+    <div id="results" style="text-align:center;margin-left:5%;margin-right:5%;width:90%;border-style:solid;border-width:thin">
+        <div style="width:62px;margin:5px;margin-top: -15.5px">
+            <div style="background-color:white;padding:5px;">Results:</div>
+        </div>
+    </div>
+    
+    <script>
+        $( document ).ready(function() {
+            $.switcher();
+            switch_ = $("#plusOrMinus");
+            //console.log(switch_.)
+
+            var arrLabels = ["Years", "Months", "Weeks", "Days", "Hours", "Minutes", "Seconds", "Millisecons"];
+            
+            var arrIDsX = ["yrX", "moX", "wwX", "ddX", "hrX", "mmX", "ssX", "msX"];
+            
+            var arrIDsY = ["yrY", "moY", "wwY", "ddY", "hrY", "mmY", "ssY", "msY"];
+            
+            var range = document.getElementById('range');
+            var slider = noUiSlider.create(range, {
+                range: {
+                    'min': 0,
+                    'max': 7
+                },
+                step: 1,
+                start: [3, 4],
+                connect: true,
+                direction: 'ltr',
+                orientation: 'horizontal',
+                behaviour: 'tap-drag',
+                tooltips: true,
+                format: {
+                    to: function (value) {
+                        return arrLabels[value];
+                    },
+                    from: function (value) {
+                        return value;
+                    }
+                }
+            });
+            
+            function inputs2display(range) {
+                for (i=0; i<arrIDsX.length; i++) {
+                    if (i<range[0] || i>range[1]) {
+                        $("#"+arrIDsX[i]).hide();
+                    } else {
+                        $("#"+arrIDsX[i]).show();
+                    }
+                }
+            }
+            
+            range.noUiSlider.on('update', function(values, handle, unencoded) {
+                inputs2display(unencoded);
+            });
+            
+            var rangeY = document.getElementById('rangeY');
+            var sliderY = noUiSlider.create(rangeY, {
+                range: {
+                    'min': 0,
+                    'max': 7
+                },
+                step: 1,
+                start: [3, 4],
+                connect: true,
+                direction: 'ltr',
+                orientation: 'horizontal',
+                behaviour: 'tap-drag',
+                tooltips: true,
+                format: {
+                    to: function (value) {
+                        return arrLabels[value];
+                    },
+                    from: function (value) {
+                        return value;
+                    }
+                }
+            });
+            
+            function inputs2displayY(range) {
+                for (i=0; i<arrIDsY.length; i++) {
+                    if (i<range[0] || i>range[1]) {
+                        $("#"+arrIDsY[i]).hide();
+                    } else {
+                        $("#"+arrIDsY[i]).show();
+                    }
+                }
+            }
+            
+            rangeY.noUiSlider.on('update', function(values, handle, unencoded) {
+                inputs2displayY(unencoded);
+            });
+            
+        });
+    </script>
+
+</body>
+</html>
