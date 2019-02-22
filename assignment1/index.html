@@ -88,6 +88,7 @@
                 <input id="msXin" style="width:75px" type="number" min="0" value="0"/>
             </div>
         </div>
+        <div id="resetX" style="margin-right:10px;margin-bottom:10px;text-align:right"><button>Reset X</button></div>
     </div>
     
     <div style="text-align:center;margin:10px">
@@ -143,7 +144,7 @@
                 <div id="ssYlabel" style="width:79px;text-align:center">
                     Seconds:
                 </div>
-                <input id="ssXin" style="width:75px" type="number" min="0" value="0"/>
+                <input id="ssYin" style="width:75px" type="number" min="0" value="0"/>
             </div>
             <div id="msY" class="sub_cont">
                 <div id="msYlabel" style="width:79px;text-align:center">
@@ -152,10 +153,11 @@
                 <input id="msYin" style="width:75px" type="number" min="0" value="0"/>
             </div>
         </div>
+        <div id="resetY" style="margin-right:10px;margin-bottom:10px;text-align:right"><button>Reset Y</button></div>
     </div>
     
     <div style="text-align:center">
-        <button id="calcButton" style="border-radius:10px;margin:20px"><b>Calculate</b></button>
+        <button id="calcButton" style="margin:20px">Calculate</button>
     </div>
     
     <div style="text-align:center;margin-left:5%;margin-right:5%;width:90%;border-style:solid;border-width:thin">
@@ -292,7 +294,10 @@
                     toRemove = 2;
                 }
                 str2return = str2return.substring(0, str2return.length - toRemove) + "}";
-                return str2return;
+                if (toRemove>0) {
+                    return str2return;
+                } else return "{0}";
+                
             }
             
             // true: minus; false: plus
@@ -315,9 +320,14 @@
                 }
                 if (plusMinusToggle.checked) {
                     // subtract:
-                    var tempX = duration2string(sumX);
-                    var result = sumX.subtract(sumY);
-                    document.getElementById("results").innerHTML = "<div style='margin-bottom:10px;color:green'>" + tempX + " - " + duration2string(sumY) + " = " + duration2string(result) + "</div>";
+                    // If Y is greater than X, give message:
+                    if (sumY.asMilliseconds() > sumX.asMilliseconds()) {
+                        document.getElementById("results").innerHTML = "<div style='margin-bottom:10px;color:red'>Please enter a duration Y that is less than or equal to duration X.</div>";
+                    } else {
+                        var tempX = duration2string(sumX);
+                        var result = sumX.subtract(sumY);
+                        document.getElementById("results").innerHTML = "<div style='margin-bottom:10px;color:green'>" + tempX + " - " + duration2string(sumY) + " = " + duration2string(result) + "</div>";
+                    }
                 } else {
                     // add:
                     var tempX = duration2string(sumX);
@@ -325,6 +335,20 @@
                     document.getElementById("results").innerHTML = "<div style='margin-bottom:10px;color:green'>" + tempX + " + " + duration2string(sumY) + " = " + duration2string(result) + "</div>";
                 }
             };
+            
+            var resetXbutton = document.getElementById("resetX");
+            var resetYbutton = document.getElementById("resetY");
+            resetXbutton.onclick = function(){
+                for (var i=0; i<arrIDsX.length; i++) {
+                    document.getElementById(arrIDsX[i]+"in").value = 0;
+                }
+            }
+            resetYbutton.onclick = function(){
+                for (var i=0; i<arrIDsY.length; i++) {
+                    console.log(arrIDsY[i]+"in");
+                    document.getElementById(arrIDsY[i]+"in").value = 0;
+                }
+            }
             
         });
     </script>
