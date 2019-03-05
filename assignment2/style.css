@@ -1,0 +1,18 @@
+body {
+    font-family: "Segoe UI",Arial,sans-serif;
+    overflow: hidden;
+    background-color: #310045;
+    color: white;
+}
+H1 {
+    font-size: 28px;
+    color: darkseagreen;
+}
+a {
+    color: azure;
+}
+
+#map {
+     width: 500px;
+     height: 400px;
+}
