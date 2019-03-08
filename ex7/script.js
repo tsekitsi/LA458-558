@@ -8,6 +8,16 @@ var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
 
+var NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+	attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+	bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+	minZoom: 1,
+	maxZoom: 8,
+	format: 'jpg',
+	time: '',
+	tilematrixset: 'GoogleMapsCompatible_Level'
+});
+
 // Intializing and grouping marker layers for cities:
 
 var dsm = L.marker([41.603956, -93.660146]).bindPopup('Des Moines, IA');
@@ -24,15 +34,39 @@ var map = L.map('map', {
     layers: [osm, cities]
 });
 
-// Adding control to switch baselayers, toggle markers' display:
+// Polyline:
+
+var myLine = new L.Polyline([lincoln.getLatLng(), milwaukee.getLatLng()], {
+    color: 'red',
+    weight: 3,
+    opacity: 0.5,
+    smoothFactor: 1
+});
+
+// Polygon:
+
+var myPolygon = L.polygon([
+    [40.806122, -96.702701],//[42, -93],
+    [44.994636, -96.702701],//[42, -94],
+    [44.994636, -87.680689],//[43, -94],
+	[40.806122, -87.680689]//[43, -93]
+],{
+    color: 'yellow',
+    fillColor: 'yellow'
+});
+
+// Adding controls for baselayers, overlays:
 
 var baseMaps = {
     "Streets": osm,
-    "Satellite": esriWorldImagery
+    "Aerial": esriWorldImagery,
+    "Night": NASAGIBS_ViirsEarthAtNight2012
 };
 
 var overlayMaps = {
-    "Cities": cities
+    "Cities": cities,
+    "Line": myLine,
+    "Polygon": myPolygon
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
