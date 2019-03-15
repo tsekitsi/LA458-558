@@ -29,13 +29,12 @@ var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
     pointToLayer: function (feature, latlng) {
         return new L.CircleMarker(latlng, {
             stroke: true,
-            weight: 0, //stroke weight
-            //color: '#000000', //stroke color
-            opacity: 1.0, //stoke opacity
+            weight: 0,
+            color: '#000000',
+            opacity: 1.0,
             fillColor: 'red',
             fillOpacity: 0.7,
-            radius: feature.properties.NumTitles + 2,
-           //title: this is not supported here - see layer.bindTooltip  below
+            radius: feature.properties.NumTitles + 2
         });
     },
 

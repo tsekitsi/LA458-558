@@ -49,10 +49,12 @@
     <p>The "Round of 16" of Europe's elite soccer club competition, the "Champions League", was just completed this week. The previous round, the group stage, ended last December. It comprised of 32 clubs split into 8 groups of 4. Half the clubs progressed to the round of 16: the two best-performing teams of each group.</p>
     <p>The last 16 clubs were paired up on a random draw, resulting into 8 pairs/ties. Each tie competed in two matches/legs: one leg being held in each club's home stadium. The 2nd legs finished this week, and the club that leaded their tie on aggregate score progressed to the competition's quarter-finals.</p>
     <h2>GeoJSON data Description</h2>
-    <p>This map shows the last-16 clubs' home ground locations. This point dataset is drawn from a GeoJSON file (<a href=""></a>) which I created on geojson.io. Each feature has attributes: (1) "GroupFinish", with values of either 1 or 2, depending on whether the respective club finished 1st or 2nd in their group, (2) "ProgressedToQuartFin", with values of either 0 or 1, depending on whether the respective club progressed to the quarter-finals, (3) "NumTitles", which holds the number of Champions League titles each club has won in their history, and (4) "LogoURL", with URLs to image files of the clubs' logos.</p>
-    <h2>Map styles</h2>
-    <p>Each marker is colored based on the "ProgressedToQuartFin" field, and has a radius based on the "NumTitles" field.</p>
+    <p>This map shows the last-16 clubs' home ground locations. This point dataset is drawn from a GeoJSON file (<a href="https://tsekitsi.github.io/LA458-558/data/ex8/last16.geojson">https://tsekitsi.github.io/LA458-558/data/ex8/last16.geojson</a>) which I created on geojson.io. Each feature has attributes: (1) "GroupFinish", with values of either 1 or 2, depending on whether the respective club finished 1st or 2nd in their group, (2) "ProgressedToQuartFin", with values of either 0 or 1, depending on whether the respective club progressed to the quarter-finals, (3) "NumTitles", which holds the number of Champions League titles each club has won in their history, and (4) "LogoURL", with URLs to image files of the clubs' logos.</p>
+    <h2>Map styles/events/controls</h2>
+    <p>Each marker is colored based on the "ProgressedToQuartFin" field, and has a radius based on the "NumTitles" field. When hovering a marker, you get a tooltip with a sentence about what position the club finished in on the group stage. On click, a popup with the club's name and logo shows. Lastly, my map offers the option of switching betweeen street and arial basemaps and it includes a legend.</p>
     <h2>Conclusion</h2>
     <p>This map verifies that, this year, the "underdogs" have upset the competitions' historic favorites.</p>
+    <h2>Acknowledgements</h2>
+    <p>Background image taken from: https://leagueapps.desk.com/customer/en/portal/articles/375979-site-background-stock-images</p>
 </body>
 </html>
