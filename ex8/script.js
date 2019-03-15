@@ -9,7 +9,7 @@ var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/
 });
 
 var map = L.map('map', {
-    center: [48.856114, 2.331950],
+    center: [48.246114, 2.331950],
     zoom: 4,
     layers: [osm]
 });
@@ -26,21 +26,21 @@ L.control.layers(baseMaps).addTo(map);
 var myURL = "https://tsekitsi.github.io/LA458-558/data/ex8/last16.geojson";
 
 var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
-	 pointToLayer: function (feature, latlng) {
+    pointToLayer: function (feature, latlng) {
         return new L.CircleMarker(latlng, {
             stroke: true,
-            weight: 2, //stroke weight
-            color: '#000000', //stroke color
+            weight: 0, //stroke weight
+            //color: '#000000', //stroke color
             opacity: 1.0, //stoke opacity
-			fillColor: 'red',
-            fillOpacity: 0.85,
-            radius: 10,
+            fillColor: 'red',
+            fillOpacity: 0.75,
+            radius: feature.properties.NumTitles + 2,
            //title: this is not supported here - see layer.bindTooltip  below
         });
     },
 
     onEachFeature: function (feature, layer) {
-        htmlText = "<strong>" + feature.properties.name + "</strong><br><img src='http://129.186.142.145/teachingGIS/webgis/cyStatues/" + feature.properties.photos + ".jpg' alt='Smiley face' height='266' width='200'>";
+        htmlText = "<strong>" + feature.properties.ClubName + "</strong><br><img class='centered' src='" + feature.properties.LogoURL + "' width='100'>";
         layer.bindPopup(htmlText);
 		layer.bindTooltip(feature.properties.name);
     }
