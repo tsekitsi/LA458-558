@@ -48,7 +48,7 @@ var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
     },
 
     onEachFeature: function (feature, layer) {
-        htmlText = "<strong>" + feature.properties.ClubName + "</strong>" + "<div class='centered'>" + "<img src='" + feature.properties.LogoURL + "' width='100'>" + "</div>";
+        htmlText = "<strong>" + feature.properties.ClubName + "</strong>" + "<div class='centered' style='margin-top:7px'>" + "<img alt='Cannot load logo image...' src='" + feature.properties.LogoURL + "' width='100'>" + "</div>";
         layer.bindPopup(htmlText);
         var pos = feature.properties.GroupFinish;
         var stOrNd = ((pos > 1) ? 'nd' : 'st');
