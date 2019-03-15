@@ -33,15 +33,16 @@ var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
             //color: '#000000', //stroke color
             opacity: 1.0, //stoke opacity
             fillColor: 'red',
-            fillOpacity: 0.75,
+            fillOpacity: 0.7,
             radius: feature.properties.NumTitles + 2,
            //title: this is not supported here - see layer.bindTooltip  below
         });
     },
 
     onEachFeature: function (feature, layer) {
-        htmlText = "<strong>" + feature.properties.ClubName + "</strong><br><img class='centered' src='" + feature.properties.LogoURL + "' width='100'>";
+        htmlText = "<strong>" + feature.properties.ClubName + "</strong>" + "<div class='centered'>" + "<img src='" + feature.properties.LogoURL + "' width='100'>" + "</div>";
         layer.bindPopup(htmlText);
-		layer.bindTooltip(feature.properties.name);
+        textForTooltip = feature.properties.ClubName + " finished " + feature.properties.GroupFinish + " in their group this season.";
+		layer.bindTooltip(textForTooltip);
     }
 }).addTo(map);
