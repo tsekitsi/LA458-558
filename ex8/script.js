@@ -71,7 +71,7 @@ legend.onAdd = function(map) {
     
     for (var i = 0; i < vals.length; i++) {
     div.innerHTML +=
-      '<i style="background:' + ((vals[i] > 0) ? '#1a9850' : '#d73027') + ' "></i> ' + labels[i]+'<br>';
+      '<i style="background:' + ((vals[i] > 0) ? '#1a9850' : '#d73027') + ' ">&nbsp;&nbsp;&nbsp;&nbsp;</i> ' + labels[i]+'<br>';
   }
 
   return div;
