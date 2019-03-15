@@ -42,7 +42,9 @@ var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
     onEachFeature: function (feature, layer) {
         htmlText = "<strong>" + feature.properties.ClubName + "</strong>" + "<div class='centered'>" + "<img src='" + feature.properties.LogoURL + "' width='100'>" + "</div>";
         layer.bindPopup(htmlText);
-        textForTooltip = feature.properties.ClubName + " finished " + feature.properties.GroupFinish + " in their group this season.";
+        var pos = feature.properties.GroupFinish;
+        var stOrNd = ((pos > 1) ? 'nd' : 'st');
+        textForTooltip = feature.properties.ClubName + " finished " + pos + stOrNd + " in their group this season.";
 		layer.bindTooltip(textForTooltip);
     }
 }).addTo(map);
