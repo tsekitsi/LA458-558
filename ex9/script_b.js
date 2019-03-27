@@ -6,6 +6,9 @@ Highcharts.mapChart('container', {
     title: {
         text: 'Eurozone countries'
     },
+    subtitle: {
+        text: 'Source: <a href="https://www.highcharts.com/maps/demo/category-map">Highcharts</a>'
+    },
     legend: {
         enabled: true
     },
