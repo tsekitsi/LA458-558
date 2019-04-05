@@ -1,0 +1,12 @@
+body {
+    font-family: "Segoe UI",Arial,sans-serif;
+}
+H1 {
+    font-size: 28px;
+}
+
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
