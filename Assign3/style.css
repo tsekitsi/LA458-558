@@ -1,0 +1,34 @@
+body {
+    font-family: "Segoe UI",Arial,sans-serif;
+    background-color: #004533;
+    color: white;
+}
+H1 {
+    font-size: 28px;
+}
+a {
+    color: floralwhite;
+}
+
+#map {
+     width: 100%;
+     height: 450px;
+}
+
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 10px/20px Arial, Helvetica, sans-serif;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    color: black;
+}
+.info h4 {
+    margin: 0 0 5px;
+}
