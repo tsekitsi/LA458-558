@@ -11,8 +11,8 @@ var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/
 // Initializing the map:
 
 var map = L.map('map', {
-    center: [51.515381, -0.112422],
-    zoom: 4,
+    center: [51.515, -0.092], //[51.54, -0.052],
+    zoom: 14,
     minZoom: 2,
     layers: [osm]
 });
@@ -28,7 +28,7 @@ L.control.layers(baseMaps).addTo(map);
 
 // Loading the data:
 
-var myURL = "https://tsekitsi.github.io/LA458-558/data/ex8/mygeodata_merged.geojson";
+var myURL = "https://tsekitsi.github.io/LA458-558/data/assign3/mygeodata_merged.geojson";
 
 function style(feature) {
     return {
