@@ -134,6 +134,10 @@ legend.addTo(map);
 
 // HighCharts code:
 
+// totals per crime type for January and February:
+var totJan = [92, 29, 144, 18, 44, 20, 23, 7, 72, 31, 5, 22, 74, 5];
+var totFeb = [93, 28, 175, 22, 48, 8, 38, 9, 92, 50, 1, 26, 68, 1];
+
 Highcharts.chart('container', {
     chart: {
         type: 'bar'
