@@ -54,11 +54,151 @@
     <h1 class="centered">Assignment 3: Leaflet and JavaScript Project
 </h1>
     
-    <div id='map'></div>
+    <div class="centered" style="width:75%" id='map'></div>
+    <p>This map visualized crime data for London, taken from the City of London Police's website. I have used a heatmap plugin for leaflet to cluster areas with more frequent and severe (in my opinion*) crimes.</p>
+    <p>*I had to invent my own intensity value for each crime type, to pass to the heatmap method.</p>
     
     <h2 class="centered">HighChart</h2>
-    <div id="container" style="min-width: 310px; height: 450px; margin: 0 auto"></div>
-    <p>...</p>
+    <div class="centered" style="width:75%" id="container" style="min-width: 310px; height: 450px; margin: 0 auto"></div>
+    <p>This is a chart showing absolute numbers of crimes, divided into their categories, for the two months that the data span.</p>
+    
+    <h2 class="centered">Tables</h2>
+    
+    <p>Lastly, this is the same data shown in tabular format:</p>
+    
+    <div class="centered" style="width:75%">
+        <div style="float:left; height:450px; width:37%">
+            <h3 class="centered">January</h3>
+            <table style="width:100%">
+                <tr>
+                    <th>Crime Type</th>
+                    <th>Num. Incidents</th>
+                </tr>
+                <tr>
+                    <td>Anti-social behaviour</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>Bicycle theft</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Bicycle theft</td>
+                    <td>144</td>
+                </tr>
+                <tr>
+                    <td>Other theft</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Criminal damage and arson</td>
+                    <td>44</td>
+                </tr>
+                <tr>
+                    <td>Drugs</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Vehicle crime</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>Public order</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Robbery</td>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <td>Violence and sexual offences</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <td>Theft from the person</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Possession of weapons</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Burglary</td>
+                    <td>74</td>
+                </tr>
+                <tr>
+                    <td>Shoplifting</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="float:right; height:450px; width:37%">
+            <h3 class="centered">February</h3>
+            <table style="width:100%">
+                <tr>
+                    <th>Crime Type</th>
+                    <th>Num. Incidents</th>
+                </tr>
+                <tr>
+                    <td>Anti-social behaviour</td>
+                    <td>93</td>
+                </tr>
+                <tr>
+                    <td>Bicycle theft</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>Bicycle theft</td>
+                    <td>175</td>
+                </tr>
+                <tr>
+                    <td>Other theft</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Criminal damage and arson</td>
+                    <td>48</td>
+                </tr>
+                <tr>
+                    <td>Drugs</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Vehicle crime</td>
+                    <td>38</td>
+                </tr>
+                <tr>
+                    <td>Public order</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Robbery</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>Violence and sexual offences</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Theft from the person</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Possession of weapons</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>Burglary</td>
+                    <td>68</td>
+                </tr>
+                <tr>
+                    <td>Shoplifting</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     
     <!-- importing custom  -->
     <script src="script.js" type="text/javascript"></script>

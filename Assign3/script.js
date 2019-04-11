@@ -157,10 +157,6 @@ Highcharts.chart('container', {
             text: 'Number of incidents'
         }
     },
-    tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: {point.percentage:.0f}%<br/>',
-        shared: true
-    },
     plotOptions: {
         column: {
             stacking: 'percent'
@@ -169,46 +165,46 @@ Highcharts.chart('container', {
     colors:crime_colors,
     series: [{
         name: 'Anti-social behaviour',
-        data: [0.5,0.5]
+        data: [totJan[0],totFeb[0]]
     }, {
         name: 'Bicycle theft',
-        data: [0.5,0.5]
+        data: [totJan[1],totFeb[1]]
     }, {
         name: 'Other theft',
-        data: [0.5,0.5]
+        data: [totJan[2],totFeb[2]]
     }, {
         name: 'Criminal damage and arson',
-        data: [0.5,0.5]
+        data: [totJan[3],totFeb[3]]
     }, {
         name: 'Drugs',
-        data: [0.5,0.5]
+        data: [totJan[4],totFeb[4]]
     }, {
         name: 'Vehicle crime',
-        data: [0.5,0.5]
+        data: [totJan[5],totFeb[5]]
     }, {
         name: 'Public order',
-        data: [0.5,0.5]
+        data: [totJan[6],totFeb[6]]
     }, {
         name: 'Robbery',
-        data: [0.5,0.5]
+        data: [totJan[7],totFeb[7]]
     }, {
         name: 'Violence and sexual offences',
-        data: [0.5,0.5]
+        data: [totJan[8],totFeb[8]]
     }, {
         name: 'Other crime',
-        data: [0.5,0.5]
+        data: [totJan[9],totFeb[9]]
     }, {
         name: 'Theft from the person',
-        data: [0.5,0.5]
+        data: [totJan[10],totFeb[10]]
     }, {
         name: 'Burglary',
-        data: [0.5,0.5]
+        data: [totJan[11],totFeb[11]]
     }, {
         name: 'Possession of weapons',
-        data: [0.5,0.5]
+        data: [totJan[12],totFeb[12]]
     }, {
         name: 'Shoplifting',
-        data: [0.5,0.5]
+        data: [totJan[13],totFeb[13]]
     }
     ]
 });
