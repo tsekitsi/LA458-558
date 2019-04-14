@@ -7,13 +7,19 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 // Initializing the map:
 
 var map = L.map('map', {
-    center: [17.390431, 78.486835],
+    center: [20.390431, 78.486835],
     zoom: 4,
     minZoom: 2,
     layers: [osm]
 });
 
 // Loading the data:
+
+// 1. The variable name technique:
+
+L.geoJSON(northCities).addTo(map);
+
+// 2. The AJAX technique:
 
 var myURL = "https://tsekitsi.github.io/LA458-558/ex13/southIndianCities.geojson";
 
@@ -25,21 +31,4 @@ function style(feature) {
     };
 }
 
-var geojsonLayer = new L.GeoJSON.AJAX(myURL , {
-    style: style,
-    pointToLayer: function (feature, latlng) {
-        return new L.CircleMarker(latlng, {
-            fillOpacity: 0.8,
-            radius: feature.properties.NumTitles + 2
-        });
-    },
-
-    onEachFeature: function (feature, layer) {
-        htmlText = "<strong>" + feature.properties.ClubName + "</strong>" + "<div class='centered' style='margin-top:7px'>" + "<img alt='Cannot load logo image...' src='" + feature.properties.LogoURL + "' width='100'>" + "</div>";
-        layer.bindPopup(htmlText);
-        var pos = feature.properties.GroupFinish;
-        var stOrNd = ((pos > 1) ? 'nd' : 'st');
-        textForTooltip = feature.properties.ClubName + " finished " + pos + stOrNd + " in their group this season.";
-		layer.bindTooltip(textForTooltip);
-    }
-}).addTo(map);
+var geojsonLayer = new L.GeoJSON.AJAX(myURL).addTo(map);
