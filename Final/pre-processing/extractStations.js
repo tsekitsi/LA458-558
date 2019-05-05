@@ -104,35 +104,34 @@ var allStations = (function () {
     return json;
 })(); //// https://stackoverflow.com/questions/2177548/load-json-into-variable
 
-// Keep only stations with a registered state and url property:
-var fullStations = [];
+// Keep only stations with a state (& url):
+var dictSttns = {};
 for (i=0; i<allStations.length; i++) {
     station = allStations[i];
     if ((stateToLatlong[station.state])&&
         (station.url != '')) {
-        station['latlng'] = stateToLatlong[station.state];
-        fullStations.push(station);
+        latlng = stateToLatlong[station.state];
+        station['latlng'] = latlng;
+        if (!dictSttns[latlng]) {
+            dictSttns[latlng] = [station];
+        } else {
+            dictSttns[latlng].push(station);
+        };
     };
 };
 
-for (i=0; i<fullStations.length; i++) {
-    console.log(L.latLng(fullStations[i].latlng));
-    var marker = new L.CircleMarker(L.latLng(fullStations[i].latlng), {
+var markers = L.markerClusterGroup();
+
+
+for (var key in dictSttns) {
+    markers.addLayer(L.marker(L.latLng(key.split(','))));
+    /*
+    var marker = new L.CircleMarker(L.latLng(key.split(',')), {
         fillOpacity: 0.8,
         radius: 2
     });
     marker.addTo(map);
+    */
 };
 
-/*
-var states = {};
-for (i=0; i<fullStations.length; i++) {
-    station = fullStations[i];
-    if (!states[station.state]) {
-        states[station.state] = 1;
-    } else {
-        states[station.state] = states[station.state]+1;
-    }
-}
-console.log(states);
-*/
+map.addLayer(markers);
