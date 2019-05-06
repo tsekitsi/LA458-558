@@ -79,7 +79,7 @@ var stateToLatlong = {
 
 // Url to the api with data in json format:
 
-linkToJSON = 'http://www.radio-browser.info/webservice/json/stations/bycountry/greece';
+linkToJSON = 'https://www.radio-browser.info/webservice/json/stations/bycountry/greece';
 
 // Download the data into a json object variable:
 
