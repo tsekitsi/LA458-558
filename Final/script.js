@@ -1,9 +1,5 @@
 // Initializing two tile layer variables:
 
-var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-});
-
 var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
@@ -19,18 +15,13 @@ var map = L.map('map', {
     layers: [esriWorldImagery]
 });
 
-// Adding controls for baselayers, overlays:
+// Adding controls:
 
-var baseMaps = {
-    "Streets": osm,
-    "Aerial": esriWorldImagery
-};
-
-L.control.layers(baseMaps).addTo(map);
 var zoomHome = L.Control.zoomHome();
 zoomHome.addTo(map);
 
 // Dictionary of state names to latlong:
+
 var stateToLatlong = {
     'Achaia': [38.083333, 21.833333],
     'Argolis (Greece)': [37.666667, 22.833333],
@@ -87,9 +78,11 @@ var stateToLatlong = {
 };
 
 // Url to the api with data in json format:
+
 linkToJSON = 'http://www.radio-browser.info/webservice/json/stations/bycountry/greece';
 
 // Download the data into a json object variable:
+
 var allStations = (function () {
     var json = null;
     $.ajax({
@@ -105,8 +98,9 @@ var allStations = (function () {
 })(); //// https://stackoverflow.com/questions/2177548/load-json-into-variable
 
 // Keep only stations with a state (& url):
+
 var dictSttns = {};
-for (i=0; i<allStations.length; i++) {
+for (var i=0; i<allStations.length; i++) {
     station = allStations[i];
     if ((stateToLatlong[station.state])&&
         (station.url != '')) {
@@ -120,18 +114,44 @@ for (i=0; i<allStations.length; i++) {
     };
 };
 
-var markers = L.markerClusterGroup();
+// Declare marker cluster group:
 
+var markers = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    iconCreateFunction: function(cluster) {
+        n = 20+3*cluster.getChildCount();
+		return L.divIcon({ html: '<div><span>' + '</span></div>', className: 'marker-cluster', iconSize: new L.Point(n, n) });
+	}
+});
+
+// For each location, add a marker:
 
 for (var key in dictSttns) {
-    markers.addLayer(L.marker(L.latLng(key.split(','))));
-    /*
-    var marker = new L.CircleMarker(L.latLng(key.split(',')), {
-        fillOpacity: 0.8,
-        radius: 2
-    });
-    marker.addTo(map);
-    */
+    var div = document.createElement('div');
+    var stationsNow = dictSttns[key];
+    for (var i=0; i<stationsNow.length; i++) {
+        var station = stationsNow[i];
+        var a = document.createElement('a');
+        a.setAttribute('onclick','openModal("'+station.url+'","'+station.name+'")');
+        a.setAttribute('style', 'cursor:pointer;display:block');
+        a.innerHTML = station.name;
+        div.appendChild(a);
+    };
+    console.log(div);
+    markers.addLayer(new L.marker(L.latLng(key.split(',')), {icon: L.icon({
+    iconUrl: 'img/diamond.png', iconAnchor: [9, 0]}), opacity: 0.9}).bindPopup(div));
 };
 
 map.addLayer(markers);
+
+var modalTinyNoFooter = new tingle.modal({
+    onClose: function() {
+        document.getElementById("player").remove();
+    },
+    cssClass: ['class1', 'class2']
+});
+
+function openModal(url, name) {
+    modalTinyNoFooter.open();
+    modalTinyNoFooter.setContent('<h2>'+name+'</h2><iframe style="width:100%;height:500px" id="player" src="'+url+'"></iframe>');
+}
